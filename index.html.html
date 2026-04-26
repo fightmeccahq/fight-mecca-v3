@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fight Mecca | Elite Sports Media</title>
+    
+    <meta property="og:title" content="Fight Mecca | Elite Sports Media">
+    <meta property="og:description" content="From ringside to the studio. Elite fight coverage and exclusive interviews.">
+    <meta property="og:image" content="https://www.fightmecca.tv/logo.png">
+    <meta property="og:url" content="https://www.fightmecca.tv">
+    <meta property="og:type" content="website">
+    
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Fight Mecca">
+    <meta name="twitter:description" content="Elite fight coverage and exclusive interviews.">
+    <meta name="twitter:image" content="https://www.fightmecca.tv/logo.png">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;400;800&display=swap" rel="stylesheet">
+    <style>
+        html { 
+            scroll-behavior: smooth; 
+            scroll-padding-top: 100px; 
+        }
+        body { font-family: 'Montserrat', sans-serif; background-color: #050505; color: #FFFFFF; overflow-x: hidden; }
+        .accent-gold { color: #D4AF37; }
+        
+        nav, #nav-logo-img, .logo-text { transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1); }
+
+        nav.scrolled { padding-top: 0.5rem; padding-bottom: 0.5rem; background-color: rgba(0,0,0,0.98); }
+        nav.scrolled #nav-logo-img { height: 2.5rem !important; } 
+
+        header { padding-top: 140px; padding-bottom: 60px; }
+        @media (min-width: 768px) { 
+            header { padding-top: 300px; padding-bottom: 120px; } 
+        }
+
+        .snap-x { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; scroll-behavior: smooth; gap: 16px; padding-bottom: 20px; }
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+        
+        .fm-card-wrapper { scroll-snap-align: center; flex: 0 0 85%; }
+        .fm-video-box { background: #111; border: 1px solid rgba(255,255,255,0.05); border-radius: 2px; padding: 6px; }
+        @media (min-width: 768px) { .fm-card-wrapper { flex: 0 0 31%; } }
+
+        #inquiries-target { display: block; position: relative; top: -40px; visibility: hidden; }
+
+        .founder-photo { filter: grayscale(100%); transition: all 0.6s ease; }
+        .founder-group:hover .founder-photo { filter: grayscale(0%); transform: scale(1.05); }
+
+        #mini-menu {
+            display: none; position: absolute; top: 80px; right: 24px; width: 160px;
+            background: rgba(10, 10, 10, 0.98); backdrop-filter: blur(12px);
+            border: 1px solid rgba(212, 175, 55, 0.4); border-radius: 4px; z-index: 200;
+        }
+        #mini-menu.active { display: block; }
+    </style>
+</head>
+<body>
+
+    <nav id="main-nav" class="fixed top-0 w-full z-[100] border-b border-[#D4AF37]/20 px-6 md:px-12 py-6 flex justify-between items-center bg-black/80 backdrop-blur-md">
+        <div class="flex items-center">
+            <img id="nav-logo-img" src="logo.png" alt="Logo" class="h-14 md:h-20 w-auto mr-4" onerror="this.style.display='none'">
+            <div class="logo-text text-sm md:text-2xl italic tracking-[0.2em] md:tracking-[0.4em] uppercase whitespace-nowrap">
+                <span class="font-[200]">FIGHT</span><span class="font-[800] accent-gold">MECCA</span>
+            </div>
+        </div>
+
+        <div class="hidden md:flex items-center space-x-3">
+            <a href="#boxing" class="w-28 border border-white/20 py-2 text-[9px] font-bold tracking-[0.3em] uppercase text-center hover:border-[#D4AF37] hover:text-[#D4AF37] transition duration-300">Boxing</a>
+            <a href="#mma" class="w-28 border border-white/20 py-2 text-[9px] font-bold tracking-[0.3em] uppercase text-center hover:border-[#D4AF37] hover:text-[#D4AF37] transition duration-300">MMA</a>
+            <a href="#futbol" class="w-28 border border-white/20 py-2 text-[9px] font-bold tracking-[0.3em] uppercase text-center hover:border-[#D4AF37] hover:text-[#D4AF37] transition duration-300">Futbol</a>
+            <a href="#inquiries-target" class="w-28 border border-white/20 py-2 text-[9px] font-bold tracking-[0.3em] uppercase text-center hover:border-[#D4AF37] hover:text-[#D4AF37] transition duration-300">Inquiries</a>
+        </div>
+        
+        <button id="menu-trigger" onclick="toggleMenu()" class="md:hidden border border-[#D4AF37] rounded-sm px-4 py-2"><span class="text-[10px] font-800 accent-gold uppercase">MENU</span></button>
+
+        <div id="mini-menu">
+            <div class="flex flex-col p-4 text-[10px] font-bold tracking-widest uppercase text-center space-y-4">
+                <a href="#boxing" onclick="toggleMenu()">Boxing</a>
+                <a href="#mma" onclick="toggleMenu()">MMA</a>
+                <a href="#futbol" onclick="toggleMenu()">Futbol</a>
+                <a href="#inquiries-target" onclick="toggleMenu()">Inquiries</a>
+            </div>
+        </div>
+    </nav>
+
+    <header class="px-8 bg-black border-b border-zinc-900 text-center">
+        <div class="max-w-6xl mx-auto">
+            <p class="text-[11px] md:text-[14px] tracking-[0.8em] accent-gold font-bold mb-6 md:mb-8 uppercase italic leading-loose">FROM RINGSIDE<br class="md:hidden"> TO THE STUDIO</p>
+            <h1 class="text-3xl md:text-7xl font-extralight leading-tight tracking-tight uppercase">
+                ELITE FIGHT COVERAGE<br>
+                <span class="text-zinc-700 md:my-4 block text-2xl md:text-5xl font-light italic">AND</span>
+                <span class="font-bold accent-gold">EXCLUSIVE INTERVIEWS</span>
+            </h1>
+        </div>
+    </header>
+
+    <main class="py-12 space-y-24">
+        <section id="boxing" class="max-w-[1600px] mx-auto">
+            <div class="px-8 mb-8"><p class="text-[11px] font-bold text-zinc-500 tracking-[0.5em] uppercase border-l-2 border-[#D4AF37] pl-4">Boxing Content</p></div>
+            <div class="snap-x no-scrollbar px-8">
+                <div class="fm-card-wrapper"><div class="fm-video-box"><div class="aspect-video"><iframe class="w-full h-full" src="https://www.youtube.com/embed/4bM63Bv8ImE" frameborder="0" allowfullscreen></iframe></div></div></div>
+                <div class="fm-card-wrapper"><div class="fm-video-box"><div class="aspect-video"><iframe class="w-full h-full" src="https://www.youtube.com/embed/0KYY2tHlZxo" frameborder="0" allowfullscreen></iframe></div></div></div>
+                <div class="fm-card-wrapper"><div class="fm-video-box"><div class="aspect-video"><iframe class="w-full h-full" src="https://www.youtube.com/embed/PnmMQMwCmvc" frameborder="0" allowfullscreen></iframe></div></div></div>
+            </div>
+        </section>
+
+        <section id="mma" class="max-w-[1600px] mx-auto">
+            <div class="px-8 mb-8"><p class="text-[11px] font-bold text-zinc-500 tracking-[0.5em] uppercase border-l-2 border-[#D4AF37] pl-4">MMA Content</p></div>
+            <div class="snap-x no-scrollbar px-8">
+                <div class="fm-card-wrapper"><div class="fm-video-box"><div class="aspect-video"><iframe class="w-full h-full" src="https://www.youtube.com/embed/LhVjFEQgZs0" frameborder="0" allowfullscreen></iframe></div></div></div>
+                <div class="fm-card-wrapper"><div class="fm-video-box"><div class="aspect-video"><iframe class="w-full h-full" src="https://www.youtube.com/embed/g1JKrCr3rDs" frameborder="0" allowfullscreen></iframe></div></div></div>
+                <div class="fm-card-wrapper"><div class="fm-video-box"><div class="aspect-video"><iframe class="w-full h-full" src="https://www.youtube.com/embed/JbUtGmQ-4V8" frameborder="0" allowfullscreen></iframe></div></div></div>
+            </div>
+        </section>
+
+        <section id="futbol" class="max-w-[1600px] mx-auto">
+            <div class="px-8 mb-8"><p class="text-[11px] font-bold text-zinc-500 tracking-[0.5em] uppercase border-l-2 border-[#D4AF37] pl-4">Aztex Deportes</p></div>
+            <div class="snap-x no-scrollbar px-8">
+                <div class="fm-card-wrapper"><div class="fm-video-box"><div class="aspect-video"><iframe class="w-full h-full" src="https://www.youtube.com/embed/waBJf9d-BLs" frameborder="0" allowfullscreen></iframe></div></div></div>
+            </div>
+        </section>
+    </main>
+
+    <span id="inquiries-target"></span>
+    <section id="bio-section" class="founder-group max-w-5xl mx-auto px-8 py-20 md:py-32 border-t border-zinc-900 flex flex-col items-center text-center">
+        <div class="w-40 h-40 md:w-48 md:h-48 rounded-full border border-[#D4AF37]/30 overflow-hidden mb-10 shadow-[0_0_50px_rgba(212,175,55,0.2)]">
+            <img src="ariel.jpg" alt="Ariel" class="founder-photo w-full h-full object-cover">
+        </div>
+        <h2 class="text-3xl md:text-4xl font-bold uppercase tracking-tighter mb-4 italic">Ariel Thee Aztex</h2>
+        <div class="text-[10px] md:text-[11px] font-bold tracking-[0.6em] accent-gold uppercase mb-12 italic">FOUNDER &bull; PRODUCER<br><span class="block mt-3">LEAD CORRESPONDENT</span></div>
+        
+        <div class="mb-4"><p class="text-[10px] md:text-[11px] font-bold tracking-[0.5em] text-zinc-500 uppercase">FOR MEDIA INQUIRIES & PARTNERSHIPS</p></div>
+        <div class="inline-block border-b-2 border-[#D4AF37] pb-2 mb-12">
+            <a href="mailto:arielr@fightmecca.tv" class="text-xl md:text-2xl font-bold accent-gold tracking-tight">arielr@fightmecca.tv</a>
+        </div>
+        
+        <div class="flex justify-center items-center space-x-12 md:space-x-16 text-2xl md:text-4xl text-zinc-500">
+            <a href="https://www.instagram.com/fightmeccahq" class="hover:text-[#E1306C] transition duration-400"><i class="fa-brands fa-instagram"></i></a>
+            <a href="https://youtube.com/@fightmeccahq" class="hover:text-[#FF0000] transition duration-400"><i class="fa-brands fa-youtube"></i></a>
+            <a href="https://www.tiktok.com/@fightmeccahq" class="hover:text-[#00f2ea] transition duration-400"><i class="fa-brands fa-tiktok"></i></a>
+            <a href="https://www.facebook.com/share/18H9c1oAFW/" class="hover:text-[#1877F2] transition duration-400"><i class="fa-brands fa-facebook-f"></i></a>
+        </div>
+    </section>
+
+    <footer class="py-20 border-t border-zinc-900 text-center bg-[#030303]">
+        <div class="flex flex-col items-center">
+            <div class="relative mb-6">
+                <img src="logo.png" alt="Logo" class="h-16 grayscale opacity-50">
+                <span class="absolute -top-1 -right-4 text-[10px] text-zinc-700 font-bold uppercase">TM</span>
+            </div>
+            <p class="text-[10px] tracking-[0.5em] text-zinc-600 uppercase font-bold">© 2026 Fight Mecca Network &bull; Houston, TX</p>
+        </div>
+    </footer>
+
+    <script>
+        window.onscroll = function() {
+            const nav = document.getElementById('main-nav');
+            if (window.scrollY > 80) { nav.classList.add('scrolled'); } 
+            else { nav.classList.remove('scrolled'); }
+        };
+        function toggleMenu() { document.getElementById('mini-menu').classList.toggle('active'); }
+        window.onclick = function(event) { if (!event.target.closest('#menu-trigger') && !event.target.closest('#mini-menu')) { document.getElementById('mini-menu').classList.remove('active'); } }
+    </script>
+</body>
+</html>
