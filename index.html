@@ -34,7 +34,7 @@
 
         header { padding-top: 140px; padding-bottom: 60px; }
         @media (min-width: 768px) { 
-            header { padding-top: 300px; padding-bottom: 120px; } 
+            header { padding-top: 260px; padding-bottom: 100px; } 
         }
 
         .snap-x { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; scroll-behavior: smooth; gap: 16px; padding-bottom: 20px; }
@@ -42,8 +42,17 @@
         .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
         
         .fm-card-wrapper { scroll-snap-align: center; flex: 0 0 85%; }
-        .fm-video-box { background: #111; border: 1px solid rgba(255,255,255,0.05); border-radius: 2px; padding: 6px; }
-        @media (min-width: 768px) { .fm-card-wrapper { flex: 0 0 31%; } }
+        .fm-short-wrapper { scroll-snap-align: center; flex: 0 0 60%; }
+        .fm-video-box { background: #111; border: 1px solid rgba(255,255,255,0.05); border-radius: 4px; padding: 6px; }
+        
+        @media (min-width: 768px) { 
+            .fm-card-wrapper { flex: 0 0 31%; } 
+            .fm-short-wrapper { flex: 0 0 18.5%; }
+        }
+
+        .aspect-9-16 {
+            aspect-ratio: 9 / 16;
+        }
 
         #inquiries-target { display: block; position: relative; top: -40px; visibility: hidden; }
 
@@ -72,55 +81,138 @@
             <a href="#boxing" class="w-28 border border-white/20 py-2 text-[9px] font-bold tracking-[0.3em] uppercase text-center hover:border-[#D4AF37] hover:text-[#D4AF37] transition duration-300">Boxing</a>
             <a href="#mma" class="w-28 border border-white/20 py-2 text-[9px] font-bold tracking-[0.3em] uppercase text-center hover:border-[#D4AF37] hover:text-[#D4AF37] transition duration-300">MMA</a>
             <a href="#futbol" class="w-28 border border-white/20 py-2 text-[9px] font-bold tracking-[0.3em] uppercase text-center hover:border-[#D4AF37] hover:text-[#D4AF37] transition duration-300">Futbol</a>
+            <a href="#reels" class="w-28 border border-white/20 py-2 text-[9px] font-bold tracking-[0.3em] uppercase text-center hover:border-[#D4AF37] hover:text-[#D4AF37] transition duration-300">Reels</a>
             <a href="#inquiries-target" class="w-28 border border-white/20 py-2 text-[9px] font-bold tracking-[0.3em] uppercase text-center hover:border-[#D4AF37] hover:text-[#D4AF37] transition duration-300">Inquiries</a>
         </div>
         
-        <button id="menu-trigger" onclick="toggleMenu()" class="md:hidden border border-[#D4AF37] rounded-sm px-4 py-2"><span class="text-[10px] font-800 accent-gold uppercase">MENU</span></button>
+        <button id="menu-trigger" onclick="toggleMenu()" aria-label="Toggle navigation menu" class="md:hidden border border-[#D4AF37] rounded-sm px-4 py-2">
+            <span class="text-[10px] font-800 accent-gold uppercase">MENU</span>
+        </button>
 
         <div id="mini-menu">
             <div class="flex flex-col p-4 text-[10px] font-bold tracking-widest uppercase text-center space-y-4">
                 <a href="#boxing" onclick="toggleMenu()">Boxing</a>
                 <a href="#mma" onclick="toggleMenu()">MMA</a>
                 <a href="#futbol" onclick="toggleMenu()">Futbol</a>
+                <a href="#reels" onclick="toggleMenu()">Reels</a>
                 <a href="#inquiries-target" onclick="toggleMenu()">Inquiries</a>
             </div>
         </div>
     </nav>
 
-    <header class="px-8 bg-black border-b border-zinc-900 text-center">
+    <!-- HEADER / HERO SECTION -->
+    <header class="relative px-8 bg-black border-b border-zinc-900 text-center">
         <div class="max-w-6xl mx-auto">
-            <p class="text-[11px] md:text-[14px] tracking-[0.8em] accent-gold font-bold mb-6 md:mb-8 uppercase italic leading-loose">FROM RINGSIDE<br class="md:hidden"> TO THE STUDIO</p>
+            <p class="text-[11px] md:text-[14px] tracking-[0.8em] accent-gold font-bold mb-6 md:mb-8 uppercase italic leading-loose">
+                FROM RINGSIDE<br class="md:hidden"> TO THE STUDIO
+            </p>
             <h1 class="text-3xl md:text-7xl font-extralight leading-tight tracking-tight uppercase">
                 ELITE FIGHT COVERAGE<br>
                 <span class="text-zinc-700 md:my-4 block text-2xl md:text-5xl font-light italic">AND</span>
                 <span class="font-bold accent-gold">EXCLUSIVE INTERVIEWS</span>
             </h1>
+
+            <!-- Full Episodes on Spotify (Clean & Centered) -->
+            <div class="mt-8 md:mt-10 flex justify-center">
+                <a href="https://open.spotify.com/show/0VJyux7iftPmU5fuyy4gPS" 
+                   target="_blank" 
+                   rel="noopener noreferrer" 
+                   class="inline-flex items-center gap-2.5 px-6 py-2.5 rounded-full border border-[#D4AF37]/40 bg-zinc-950/80 hover:border-[#1DB954] hover:bg-[#1DB954]/10 text-zinc-300 hover:text-[#1DB954] transition duration-300 shadow-lg">
+                    <i class="fa-brands fa-spotify text-lg text-[#1DB954]"></i>
+                    <span class="text-[10px] md:text-[11px] font-bold tracking-[0.2em] uppercase">Full Episodes on Spotify</span>
+                </a>
+            </div>
         </div>
     </header>
 
     <main class="py-12 space-y-24">
+        <!-- BOXING SECTION -->
         <section id="boxing" class="max-w-[1600px] mx-auto">
             <div class="px-8 mb-8"><p class="text-[11px] font-bold text-zinc-500 tracking-[0.5em] uppercase border-l-2 border-[#D4AF37] pl-4">Boxing Content</p></div>
             <div class="snap-x no-scrollbar px-8">
-                <div class="fm-card-wrapper"><div class="fm-video-box"><div class="aspect-video"><iframe class="w-full h-full" src="https://www.youtube.com/embed/4bM63Bv8ImE" frameborder="0" allowfullscreen></iframe></div></div></div>
-                <div class="fm-card-wrapper"><div class="fm-video-box"><div class="aspect-video"><iframe class="w-full h-full" src="https://www.youtube.com/embed/0KYY2tHlZxo" frameborder="0" allowfullscreen></iframe></div></div></div>
-                <div class="fm-card-wrapper"><div class="fm-video-box"><div class="aspect-video"><iframe class="w-full h-full" src="https://www.youtube.com/embed/PnmMQMwCmvc" frameborder="0" allowfullscreen></iframe></div></div></div>
+                <!-- 3 New Releases in Front -->
+                <div class="fm-card-wrapper"><div class="fm-video-box"><div class="aspect-video"><iframe class="w-full h-full" src="https://www.youtube.com/embed/PaFA0QHjGIw" title="Fight Mecca Boxing New 1" loading="lazy" frameborder="0" allowfullscreen></iframe></div></div></div>
+                <div class="fm-card-wrapper"><div class="fm-video-box"><div class="aspect-video"><iframe class="w-full h-full" src="https://www.youtube.com/embed/NCejzM8aPaM" title="Fight Mecca Boxing New 2" loading="lazy" frameborder="0" allowfullscreen></iframe></div></div></div>
+                <div class="fm-card-wrapper"><div class="fm-video-box"><div class="aspect-video"><iframe class="w-full h-full" src="https://www.youtube.com/embed/_t-_IA_hprY" title="Fight Mecca Boxing New 3" loading="lazy" frameborder="0" allowfullscreen></iframe></div></div></div>
+                <!-- Existing Archive -->
+                <div class="fm-card-wrapper"><div class="fm-video-box"><div class="aspect-video"><iframe class="w-full h-full" src="https://www.youtube.com/embed/4bM63Bv8ImE" title="Fight Mecca Boxing 1" loading="lazy" frameborder="0" allowfullscreen></iframe></div></div></div>
+                <div class="fm-card-wrapper"><div class="fm-video-box"><div class="aspect-video"><iframe class="w-full h-full" src="https://www.youtube.com/embed/0KYY2tHlZxo" title="Fight Mecca Boxing 2" loading="lazy" frameborder="0" allowfullscreen></iframe></div></div></div>
+                <div class="fm-card-wrapper"><div class="fm-video-box"><div class="aspect-video"><iframe class="w-full h-full" src="https://www.youtube.com/embed/PnmMQMwCmvc" title="Fight Mecca Boxing 3" loading="lazy" frameborder="0" allowfullscreen></iframe></div></div></div>
             </div>
         </section>
 
+        <!-- MMA SECTION -->
         <section id="mma" class="max-w-[1600px] mx-auto">
             <div class="px-8 mb-8"><p class="text-[11px] font-bold text-zinc-500 tracking-[0.5em] uppercase border-l-2 border-[#D4AF37] pl-4">MMA Content</p></div>
             <div class="snap-x no-scrollbar px-8">
-                <div class="fm-card-wrapper"><div class="fm-video-box"><div class="aspect-video"><iframe class="w-full h-full" src="https://www.youtube.com/embed/LhVjFEQgZs0" frameborder="0" allowfullscreen></iframe></div></div></div>
-                <div class="fm-card-wrapper"><div class="fm-video-box"><div class="aspect-video"><iframe class="w-full h-full" src="https://www.youtube.com/embed/g1JKrCr3rDs" frameborder="0" allowfullscreen></iframe></div></div></div>
-                <div class="fm-card-wrapper"><div class="fm-video-box"><div class="aspect-video"><iframe class="w-full h-full" src="https://www.youtube.com/embed/JbUtGmQ-4V8" frameborder="0" allowfullscreen></iframe></div></div></div>
+                <div class="fm-card-wrapper"><div class="fm-video-box"><div class="aspect-video"><iframe class="w-full h-full" src="https://www.youtube.com/embed/LhVjFEQgZs0" title="Fight Mecca MMA 1" loading="lazy" frameborder="0" allowfullscreen></iframe></div></div></div>
+                <div class="fm-card-wrapper"><div class="fm-video-box"><div class="aspect-video"><iframe class="w-full h-full" src="https://www.youtube.com/embed/g1JKrCr3rDs" title="Fight Mecca MMA 2" loading="lazy" frameborder="0" allowfullscreen></iframe></div></div></div>
+                <div class="fm-card-wrapper"><div class="fm-video-box"><div class="aspect-video"><iframe class="w-full h-full" src="https://www.youtube.com/embed/JbUtGmQ-4V8" title="Fight Mecca MMA 3" loading="lazy" frameborder="0" allowfullscreen></iframe></div></div></div>
             </div>
         </section>
 
+        <!-- AZTEX DEPORTES / FUTBOL SECTION -->
         <section id="futbol" class="max-w-[1600px] mx-auto">
             <div class="px-8 mb-8"><p class="text-[11px] font-bold text-zinc-500 tracking-[0.5em] uppercase border-l-2 border-[#D4AF37] pl-4">Aztex Deportes</p></div>
             <div class="snap-x no-scrollbar px-8">
-                <div class="fm-card-wrapper"><div class="fm-video-box"><div class="aspect-video"><iframe class="w-full h-full" src="https://www.youtube.com/embed/waBJf9d-BLs" frameborder="0" allowfullscreen></iframe></div></div></div>
+                <!-- New Release in Front -->
+                <div class="fm-card-wrapper"><div class="fm-video-box"><div class="aspect-video"><iframe class="w-full h-full" src="https://www.youtube.com/embed/fD1O3DHuW-I" title="Aztex Deportes New Feature" loading="lazy" frameborder="0" allowfullscreen></iframe></div></div></div>
+                <!-- Existing Episode -->
+                <div class="fm-card-wrapper"><div class="fm-video-box"><div class="aspect-video"><iframe class="w-full h-full" src="https://www.youtube.com/embed/waBJf9d-BLs" title="Aztex Deportes Feature" loading="lazy" frameborder="0" allowfullscreen></iframe></div></div></div>
+            </div>
+        </section>
+
+        <!-- QUICK HITS / REELS SECTION -->
+        <section id="reels" class="max-w-[1600px] mx-auto">
+            <div class="px-8 mb-8 flex items-center justify-between">
+                <p class="text-[11px] font-bold text-zinc-500 tracking-[0.5em] uppercase border-l-2 border-[#D4AF37] pl-4">Quick Hits</p>
+                <span class="text-[10px] font-bold tracking-widest text-[#D4AF37] uppercase flex items-center gap-1.5"><i class="fa-solid fa-bolt"></i> Reels</span>
+            </div>
+            <div class="snap-x no-scrollbar px-8">
+                <!-- Short 1 -->
+                <div class="fm-short-wrapper">
+                    <div class="fm-video-box">
+                        <div class="aspect-9-16 overflow-hidden rounded">
+                            <iframe class="w-full h-full" src="https://www.youtube.com/embed/mJoKwglyk0k" title="Fight Mecca Short 1" loading="lazy" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Short 2 -->
+                <div class="fm-short-wrapper">
+                    <div class="fm-video-box">
+                        <div class="aspect-9-16 overflow-hidden rounded">
+                            <iframe class="w-full h-full" src="https://www.youtube.com/embed/lKO1C7MheEU" title="Fight Mecca Short 2" loading="lazy" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Short 3 -->
+                <div class="fm-short-wrapper">
+                    <div class="fm-video-box">
+                        <div class="aspect-9-16 overflow-hidden rounded">
+                            <iframe class="w-full h-full" src="https://www.youtube.com/embed/AV0RylUWDtM" title="Fight Mecca Short 3" loading="lazy" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Short 4 -->
+                <div class="fm-short-wrapper">
+                    <div class="fm-video-box">
+                        <div class="aspect-9-16 overflow-hidden rounded">
+                            <iframe class="w-full h-full" src="https://www.youtube.com/embed/zSGRBk_zxQg" title="Fight Mecca Short 4" loading="lazy" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Short 5 -->
+                <div class="fm-short-wrapper">
+                    <div class="fm-video-box">
+                        <div class="aspect-9-16 overflow-hidden rounded">
+                            <iframe class="w-full h-full" src="https://www.youtube.com/embed/nztLS7QYn7I" title="Fight Mecca Short 5" loading="lazy" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        </div>
+                    </div>
+                </div>
             </div>
         </section>
     </main>
@@ -128,9 +220,11 @@
     <span id="inquiries-target"></span>
     <section id="bio-section" class="founder-group max-w-5xl mx-auto px-8 py-20 md:py-32 border-t border-zinc-900 flex flex-col items-center text-center">
         <div class="w-40 h-40 md:w-48 md:h-48 rounded-full border border-[#D4AF37]/30 overflow-hidden mb-10 shadow-[0_0_50px_rgba(212,175,55,0.2)]">
-            <img src="ariel.jpg" alt="Ariel" class="founder-photo w-full h-full object-cover">
+            <img src="ariel.jpg" alt="Ariel Ramirez" class="founder-photo w-full h-full object-cover">
         </div>
-        <h2 class="text-3xl md:text-4xl font-bold uppercase tracking-tighter mb-4 italic">Ariel Thee Aztex</h2>
+        <!-- Option 1: Full Name with Moniker Subtitle -->
+        <h2 class="text-3xl md:text-4xl font-bold uppercase tracking-tighter italic">Ariel Ramirez</h2>
+        <p class="text-xs md:text-sm font-bold tracking-[0.3em] text-[#D4AF37] uppercase mb-4 italic">&ldquo;Thee Aztex&rdquo;</p>
         <div class="text-[10px] md:text-[11px] font-bold tracking-[0.6em] accent-gold uppercase mb-12 italic">FOUNDER &bull; PRODUCER<br><span class="block mt-3">LEAD CORRESPONDENT</span></div>
         
         <div class="mb-4"><p class="text-[10px] md:text-[11px] font-bold tracking-[0.5em] text-zinc-500 uppercase">FOR MEDIA INQUIRIES & PARTNERSHIPS</p></div>
@@ -138,11 +232,12 @@
             <a href="mailto:arielr@fightmecca.tv" class="text-xl md:text-2xl font-bold accent-gold tracking-tight">arielr@fightmecca.tv</a>
         </div>
         
-        <div class="flex justify-center items-center space-x-12 md:space-x-16 text-2xl md:text-4xl text-zinc-500">
-            <a href="https://www.instagram.com/fightmeccahq" class="hover:text-[#E1306C] transition duration-400"><i class="fa-brands fa-instagram"></i></a>
-            <a href="https://youtube.com/@fightmeccahq" class="hover:text-[#FF0000] transition duration-400"><i class="fa-brands fa-youtube"></i></a>
-            <a href="https://www.tiktok.com/@fightmeccahq" class="hover:text-[#00f2ea] transition duration-400"><i class="fa-brands fa-tiktok"></i></a>
-            <a href="https://www.facebook.com/share/18H9c1oAFW/" class="hover:text-[#1877F2] transition duration-400"><i class="fa-brands fa-facebook-f"></i></a>
+        <div class="flex justify-center items-center space-x-8 md:space-x-12 text-2xl md:text-4xl text-zinc-500">
+            <a href="https://www.instagram.com/fightmeccahq" target="_blank" rel="noopener noreferrer" aria-label="Instagram" class="hover:text-[#E1306C] transition duration-400"><i class="fa-brands fa-instagram"></i></a>
+            <a href="https://youtube.com/@fightmeccahq" target="_blank" rel="noopener noreferrer" aria-label="YouTube" class="hover:text-[#FF0000] transition duration-400"><i class="fa-brands fa-youtube"></i></a>
+            <a href="https://open.spotify.com/show/0VJyux7iftPmU5fuyy4gPS" target="_blank" rel="noopener noreferrer" aria-label="Spotify" class="hover:text-[#1DB954] transition duration-400"><i class="fa-brands fa-spotify"></i></a>
+            <a href="https://www.tiktok.com/@fightmeccahq" target="_blank" rel="noopener noreferrer" aria-label="TikTok" class="hover:text-[#00f2ea] transition duration-400"><i class="fa-brands fa-tiktok"></i></a>
+            <a href="https://www.facebook.com/share/18H9c1oAFW/" target="_blank" rel="noopener noreferrer" aria-label="Facebook" class="hover:text-[#1877F2] transition duration-400"><i class="fa-brands fa-facebook-f"></i></a>
         </div>
     </section>
 
