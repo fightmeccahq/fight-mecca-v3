@@ -54,7 +54,7 @@
             aspect-ratio: 9 / 16;
         }
 
-        #inquiries-target { display: block; position: relative; top: -40px; visibility: hidden; }
+        #inquiries-target { display: block; position: relative; top: -120px; visibility: hidden; }
 
         .founder-photo { filter: grayscale(100%); transition: all 0.6s ease; }
         .founder-group:hover .founder-photo { filter: grayscale(0%); transform: scale(1.05); }
@@ -73,7 +73,7 @@
         <div class="flex items-center">
             <img id="nav-logo-img" src="logo.png" alt="Logo" class="h-14 md:h-20 w-auto mr-4" onerror="this.style.display='none'">
             <div class="logo-text text-sm md:text-2xl italic tracking-[0.2em] md:tracking-[0.4em] uppercase whitespace-nowrap">
-                <span class="font-[200]">FIGHT</span><span class="font-[800] accent-gold">MECCA</span>
+                <span class="font-[800]">FIGHT</span><span class="font-[800] accent-gold">MECCA</span>
             </div>
         </div>
 
@@ -100,7 +100,6 @@
         </div>
     </nav>
 
-    <!-- HEADER / HERO SECTION -->
     <header class="relative px-8 bg-black border-b border-zinc-900 text-center">
         <div class="max-w-6xl mx-auto">
             <p class="text-[11px] md:text-[14px] tracking-[0.8em] accent-gold font-bold mb-6 md:mb-8 uppercase italic leading-loose">
@@ -108,11 +107,10 @@
             </p>
             <h1 class="text-3xl md:text-7xl font-extralight leading-tight tracking-tight uppercase">
                 ELITE FIGHT COVERAGE<br>
-                <span class="text-zinc-700 md:my-4 block text-2xl md:text-5xl font-light italic">AND</span>
+                <span class="text-zinc-300 font-bold md:my-4 block text-2xl md:text-5xl italic">AND</span>
                 <span class="font-bold accent-gold">EXCLUSIVE INTERVIEWS</span>
             </h1>
 
-            <!-- Full Episodes on Spotify (Clean & Centered) -->
             <div class="mt-8 md:mt-10 flex justify-center">
                 <a href="https://open.spotify.com/show/0VJyux7iftPmU5fuyy4gPS" 
                    target="_blank" 
@@ -126,50 +124,89 @@
     </header>
 
     <main class="py-12 space-y-24">
-        <!-- BOXING SECTION -->
         <section id="boxing" class="max-w-[1600px] mx-auto">
-            <div class="px-8 mb-8"><p class="text-[11px] font-bold text-zinc-500 tracking-[0.5em] uppercase border-l-2 border-[#D4AF37] pl-4">Boxing Content</p></div>
-            <div class="snap-x no-scrollbar px-8">
-                <!-- 3 New Releases in Front -->
+            <div class="px-8 mb-8 flex items-center justify-between">
+                <p class="text-[11px] font-bold text-zinc-500 tracking-[0.5em] uppercase border-l-2 border-[#D4AF37] pl-4">Boxing Content</p>
+                <div class="hidden md:flex items-center space-x-2">
+                    <button onclick="scrollSection('boxing-track', -1)" aria-label="Scroll left" class="w-8 h-8 rounded border border-white/10 bg-zinc-900 hover:border-[#D4AF37] hover:text-[#D4AF37] flex items-center justify-center transition duration-300">
+                        <i class="fa-solid fa-chevron-left text-xs"></i>
+                    </button>
+                    <button onclick="scrollSection('boxing-track', 1)" aria-label="Scroll right" class="w-8 h-8 rounded border border-white/10 bg-zinc-900 hover:border-[#D4AF37] hover:text-[#D4AF37] flex items-center justify-center transition duration-300">
+                        <i class="fa-solid fa-chevron-right text-xs"></i>
+                    </button>
+                </div>
+            </div>
+            <div id="boxing-track" class="snap-x no-scrollbar px-8">
                 <div class="fm-card-wrapper"><div class="fm-video-box"><div class="aspect-video"><iframe class="w-full h-full" src="https://www.youtube.com/embed/PaFA0QHjGIw" title="Fight Mecca Boxing New 1" loading="lazy" frameborder="0" allowfullscreen></iframe></div></div></div>
                 <div class="fm-card-wrapper"><div class="fm-video-box"><div class="aspect-video"><iframe class="w-full h-full" src="https://www.youtube.com/embed/NCejzM8aPaM" title="Fight Mecca Boxing New 2" loading="lazy" frameborder="0" allowfullscreen></iframe></div></div></div>
                 <div class="fm-card-wrapper"><div class="fm-video-box"><div class="aspect-video"><iframe class="w-full h-full" src="https://www.youtube.com/embed/_t-_IA_hprY" title="Fight Mecca Boxing New 3" loading="lazy" frameborder="0" allowfullscreen></iframe></div></div></div>
-                <!-- Existing Archive -->
                 <div class="fm-card-wrapper"><div class="fm-video-box"><div class="aspect-video"><iframe class="w-full h-full" src="https://www.youtube.com/embed/4bM63Bv8ImE" title="Fight Mecca Boxing 1" loading="lazy" frameborder="0" allowfullscreen></iframe></div></div></div>
                 <div class="fm-card-wrapper"><div class="fm-video-box"><div class="aspect-video"><iframe class="w-full h-full" src="https://www.youtube.com/embed/0KYY2tHlZxo" title="Fight Mecca Boxing 2" loading="lazy" frameborder="0" allowfullscreen></iframe></div></div></div>
                 <div class="fm-card-wrapper"><div class="fm-video-box"><div class="aspect-video"><iframe class="w-full h-full" src="https://www.youtube.com/embed/PnmMQMwCmvc" title="Fight Mecca Boxing 3" loading="lazy" frameborder="0" allowfullscreen></iframe></div></div></div>
             </div>
         </section>
 
-        <!-- MMA SECTION -->
         <section id="mma" class="max-w-[1600px] mx-auto">
-            <div class="px-8 mb-8"><p class="text-[11px] font-bold text-zinc-500 tracking-[0.5em] uppercase border-l-2 border-[#D4AF37] pl-4">MMA Content</p></div>
-            <div class="snap-x no-scrollbar px-8">
+            <div class="px-8 mb-8 flex items-center justify-between">
+                <p class="text-[11px] font-bold text-zinc-500 tracking-[0.5em] uppercase border-l-2 border-[#D4AF37] pl-4">MMA Content</p>
+                <div class="hidden md:flex items-center space-x-2">
+                    <button onclick="scrollSection('mma-track', -1)" aria-label="Scroll left" class="w-8 h-8 rounded border border-white/10 bg-zinc-900 hover:border-[#D4AF37] hover:text-[#D4AF37] flex items-center justify-center transition duration-300">
+                        <i class="fa-solid fa-chevron-left text-xs"></i>
+                    </button>
+                    <button onclick="scrollSection('mma-track', 1)" aria-label="Scroll right" class="w-8 h-8 rounded border border-white/10 bg-zinc-900 hover:border-[#D4AF37] hover:text-[#D4AF37] flex items-center justify-center transition duration-300">
+                        <i class="fa-solid fa-chevron-right text-xs"></i>
+                    </button>
+                </div>
+            </div>
+            <div id="mma-track" class="snap-x no-scrollbar px-8">
                 <div class="fm-card-wrapper"><div class="fm-video-box"><div class="aspect-video"><iframe class="w-full h-full" src="https://www.youtube.com/embed/LhVjFEQgZs0" title="Fight Mecca MMA 1" loading="lazy" frameborder="0" allowfullscreen></iframe></div></div></div>
                 <div class="fm-card-wrapper"><div class="fm-video-box"><div class="aspect-video"><iframe class="w-full h-full" src="https://www.youtube.com/embed/g1JKrCr3rDs" title="Fight Mecca MMA 2" loading="lazy" frameborder="0" allowfullscreen></iframe></div></div></div>
                 <div class="fm-card-wrapper"><div class="fm-video-box"><div class="aspect-video"><iframe class="w-full h-full" src="https://www.youtube.com/embed/JbUtGmQ-4V8" title="Fight Mecca MMA 3" loading="lazy" frameborder="0" allowfullscreen></iframe></div></div></div>
             </div>
         </section>
 
-        <!-- AZTEX DEPORTES / FUTBOL SECTION -->
         <section id="futbol" class="max-w-[1600px] mx-auto">
-            <div class="px-8 mb-8"><p class="text-[11px] font-bold text-zinc-500 tracking-[0.5em] uppercase border-l-2 border-[#D4AF37] pl-4">Aztex Deportes</p></div>
-            <div class="snap-x no-scrollbar px-8">
-                <!-- New Release in Front -->
+            <div class="px-8 mb-8 flex items-center justify-between">
+                <p class="text-[11px] font-bold text-zinc-500 tracking-[0.5em] uppercase border-l-2 border-[#D4AF37] pl-4">Aztex Deportes</p>
+                <div class="hidden md:flex items-center space-x-2">
+                    <button onclick="scrollSection('futbol-track', -1)" aria-label="Scroll left" class="w-8 h-8 rounded border border-white/10 bg-zinc-900 hover:border-[#D4AF37] hover:text-[#D4AF37] flex items-center justify-center transition duration-300">
+                        <i class="fa-solid fa-chevron-left text-xs"></i>
+                    </button>
+                    <button onclick="scrollSection('futbol-track', 1)" aria-label="Scroll right" class="w-8 h-8 rounded border border-white/10 bg-zinc-900 hover:border-[#D4AF37] hover:text-[#D4AF37] flex items-center justify-center transition duration-300">
+                        <i class="fa-solid fa-chevron-right text-xs"></i>
+                    </button>
+                </div>
+            </div>
+            <div id="futbol-track" class="snap-x no-scrollbar px-8">
                 <div class="fm-card-wrapper"><div class="fm-video-box"><div class="aspect-video"><iframe class="w-full h-full" src="https://www.youtube.com/embed/fD1O3DHuW-I" title="Aztex Deportes New Feature" loading="lazy" frameborder="0" allowfullscreen></iframe></div></div></div>
-                <!-- Existing Episode -->
                 <div class="fm-card-wrapper"><div class="fm-video-box"><div class="aspect-video"><iframe class="w-full h-full" src="https://www.youtube.com/embed/waBJf9d-BLs" title="Aztex Deportes Feature" loading="lazy" frameborder="0" allowfullscreen></iframe></div></div></div>
             </div>
         </section>
 
-        <!-- QUICK HITS / REELS SECTION -->
         <section id="reels" class="max-w-[1600px] mx-auto">
             <div class="px-8 mb-8 flex items-center justify-between">
-                <p class="text-[11px] font-bold text-zinc-500 tracking-[0.5em] uppercase border-l-2 border-[#D4AF37] pl-4">Quick Hits</p>
-                <span class="text-[10px] font-bold tracking-widest text-[#D4AF37] uppercase flex items-center gap-1.5"><i class="fa-solid fa-bolt"></i> Reels</span>
+                <div class="flex items-center gap-4">
+                    <p class="text-[11px] font-bold text-zinc-500 tracking-[0.5em] uppercase border-l-2 border-[#D4AF37] pl-4">Quick Hits</p>
+                    <span class="text-[10px] font-bold tracking-widest text-[#D4AF37] uppercase flex items-center gap-1.5"><i class="fa-solid fa-bolt"></i> Reels</span>
+                </div>
+                <div class="hidden md:flex items-center space-x-2">
+                    <button onclick="scrollSection('reels-track', -1)" aria-label="Scroll left" class="w-8 h-8 rounded border border-white/10 bg-zinc-900 hover:border-[#D4AF37] hover:text-[#D4AF37] flex items-center justify-center transition duration-300">
+                        <i class="fa-solid fa-chevron-left text-xs"></i>
+                    </button>
+                    <button onclick="scrollSection('reels-track', 1)" aria-label="Scroll right" class="w-8 h-8 rounded border border-white/10 bg-zinc-900 hover:border-[#D4AF37] hover:text-[#D4AF37] flex items-center justify-center transition duration-300">
+                        <i class="fa-solid fa-chevron-right text-xs"></i>
+                    </button>
+                </div>
             </div>
-            <div class="snap-x no-scrollbar px-8">
-                <!-- Short 1 -->
+            <div id="reels-track" class="snap-x no-scrollbar px-8">
+                <div class="fm-short-wrapper">
+                    <div class="fm-video-box">
+                        <div class="aspect-9-16 overflow-hidden rounded">
+                            <iframe class="w-full h-full" src="https://www.youtube.com/embed/bD0-a01-LbQ" title="Ryan Vs Benn Ryan Garcia vs. Conor Benn" loading="lazy" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        </div>
+                    </div>
+                </div>
+
                 <div class="fm-short-wrapper">
                     <div class="fm-video-box">
                         <div class="aspect-9-16 overflow-hidden rounded">
@@ -178,7 +215,6 @@
                     </div>
                 </div>
 
-                <!-- Short 2 -->
                 <div class="fm-short-wrapper">
                     <div class="fm-video-box">
                         <div class="aspect-9-16 overflow-hidden rounded">
@@ -187,7 +223,6 @@
                     </div>
                 </div>
 
-                <!-- Short 3 -->
                 <div class="fm-short-wrapper">
                     <div class="fm-video-box">
                         <div class="aspect-9-16 overflow-hidden rounded">
@@ -196,7 +231,6 @@
                     </div>
                 </div>
 
-                <!-- Short 4 -->
                 <div class="fm-short-wrapper">
                     <div class="fm-video-box">
                         <div class="aspect-9-16 overflow-hidden rounded">
@@ -205,7 +239,6 @@
                     </div>
                 </div>
 
-                <!-- Short 5 -->
                 <div class="fm-short-wrapper">
                     <div class="fm-video-box">
                         <div class="aspect-9-16 overflow-hidden rounded">
@@ -217,15 +250,14 @@
         </section>
     </main>
 
-    <span id="inquiries-target"></span>
-    <section id="bio-section" class="founder-group max-w-5xl mx-auto px-8 py-20 md:py-32 border-t border-zinc-900 flex flex-col items-center text-center">
+    <section id="bio-section" class="founder-group max-w-5xl mx-auto px-8 py-20 md:py-32 border-t border-zinc-900 flex flex-col items-center text-center relative">
+        <span id="inquiries-target"></span>
         <div class="w-40 h-40 md:w-48 md:h-48 rounded-full border border-[#D4AF37]/30 overflow-hidden mb-10 shadow-[0_0_50px_rgba(212,175,55,0.2)]">
             <img src="ariel.jpg" alt="Ariel Ramirez" class="founder-photo w-full h-full object-cover">
         </div>
-        <!-- Option 1: Full Name with Moniker Subtitle -->
         <h2 class="text-3xl md:text-4xl font-bold uppercase tracking-tighter italic">Ariel Ramirez</h2>
-        <p class="text-xs md:text-sm font-bold tracking-[0.3em] text-[#D4AF37] uppercase mb-4 italic">&ldquo;Thee Aztex&rdquo;</p>
-        <div class="text-[10px] md:text-[11px] font-bold tracking-[0.6em] accent-gold uppercase mb-12 italic">FOUNDER &bull; PRODUCER<br><span class="block mt-3">LEAD CORRESPONDENT</span></div>
+        <p class="text-xs md:text-sm font-bold tracking-[0.3em] text-[#D4AF37] uppercase mb-4 italic">“Thee Aztex”</p>
+        <div class="text-[10px] md:text-[11px] font-bold tracking-[0.6em] accent-gold uppercase mb-12 italic">FOUNDER • PRODUCER<br><span class="block mt-3">LEAD CORRESPONDENT</span></div>
         
         <div class="mb-4"><p class="text-[10px] md:text-[11px] font-bold tracking-[0.5em] text-zinc-500 uppercase">FOR MEDIA INQUIRIES & PARTNERSHIPS</p></div>
         <div class="inline-block border-b-2 border-[#D4AF37] pb-2 mb-12">
@@ -247,7 +279,7 @@
                 <img src="logo.png" alt="Logo" class="h-16 grayscale opacity-50">
                 <span class="absolute -top-1 -right-4 text-[10px] text-zinc-700 font-bold uppercase">TM</span>
             </div>
-            <p class="text-[10px] tracking-[0.5em] text-zinc-600 uppercase font-bold">© 2026 Fight Mecca Network &bull; Houston, TX</p>
+            <p class="text-[10px] tracking-[0.5em] text-zinc-600 uppercase font-bold">© 2026 Fight Mecca Network • Houston, TX</p>
         </div>
     </footer>
 
@@ -259,6 +291,13 @@
         };
         function toggleMenu() { document.getElementById('mini-menu').classList.toggle('active'); }
         window.onclick = function(event) { if (!event.target.closest('#menu-trigger') && !event.target.closest('#mini-menu')) { document.getElementById('mini-menu').classList.remove('active'); } }
+        
+        function scrollSection(trackId, direction) {
+            const track = document.getElementById(trackId);
+            const scrollAmount = track.clientWidth * 0.75;
+            track.scrollBy({ left: direction * scrollAmount, behavior: 'smooth' });
+        }
     </script>
 </body>
 </html>
+ on
